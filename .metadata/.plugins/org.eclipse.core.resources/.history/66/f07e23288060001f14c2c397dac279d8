@@ -1,0 +1,15 @@
+package com.Ecommerce.site.controller;
+
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+@RequestMapping("ecommerce-site/api")
+public class userController {
+	
+	
+	public String getProjectName() {
+		return "Ecommmerce-site";
+	}
+
+}

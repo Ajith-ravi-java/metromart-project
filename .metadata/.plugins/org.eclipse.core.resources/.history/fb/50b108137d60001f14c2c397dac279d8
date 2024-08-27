@@ -1,0 +1,5 @@
+package com.Ecommerce.site.entity;
+
+public class userDetails {
+
+}

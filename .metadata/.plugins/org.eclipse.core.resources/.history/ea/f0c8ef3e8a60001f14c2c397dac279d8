@@ -1,0 +1,49 @@
+package com.Ecommerce.site.controller;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.Ecommerce.site.entity.userDetails;
+import com.Ecommerce.site.service.userService;
+
+@RestController
+@RequestMapping("ecommerce-site/api")
+public class userController {
+	
+	@Autowired
+	private userService userservice;
+	
+	@GetMapping("/home")
+	public String getProjectName() {
+		return "Ecommmerce-site";
+	}
+	
+	@GetMapping("/all-users")
+	public List<userDetails> getAllUserDetails(){
+		return userservice.getAllUserDetails();
+	}
+	
+	@PostMapping("/new-user")
+	public userDetails addNewUser(@RequestBody userDetails adding) {
+		return userservice.addNewUser(adding);
+	}
+	
+	@PutMapping("/modify-user")
+	public userDetails modifyUserDetails(@RequestBody userDetails update) {
+		return userservice.modifyUserDetails(update);
+	}
+	
+	@DeleteMapping("remove-user")
+	public userDetails removeUserDetails() {
+		return null;
+	}
+
+}

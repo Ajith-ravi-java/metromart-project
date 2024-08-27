@@ -7,7 +7,7 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
-import com.metromart.site.entity.CreateAccount;
+import com.metromart.site.entity.SignUp;
 import com.metromart.site.repo.AccountCreationRepo;
 
 @Service
@@ -19,7 +19,7 @@ public class myUserDetailService implements UserDetailsService{
 	@Override
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 		
-		CreateAccount user=userrepo.findByUsername(username);
+		SignUp user=userrepo.findByUsername(username);
 		
 		
 		if(user==null) {

@@ -1,0 +1,7 @@
+package com.Ecommerce.site.entity;
+
+public enum userStatus {
+
+	active,
+	block
+}

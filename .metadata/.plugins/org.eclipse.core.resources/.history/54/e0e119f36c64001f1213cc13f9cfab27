@@ -1,0 +1,67 @@
+package com.metromart.site.controller;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.metromart.site.entity.SignUp;
+import com.metromart.site.service.SignupService;
+
+import jakarta.servlet.http.HttpServletRequest;
+
+@RestController
+@RequestMapping("/metromart/api")
+public class CreateAccountController {
+	
+	@Autowired
+	private SignupService userservice;
+	
+	@GetMapping("/home")
+	public String getProjectName(HttpServletRequest http) {
+		
+		return "metro mart  -  "+http.getSession().getId();
+	}
+
+	@GetMapping("/get")
+	public String test() {
+		return "success";
+	}
+	
+	
+	@GetMapping("/csrf-tokan")
+	public String getcsrf(HttpServletRequest http) {
+		
+		return (String) http.getAttribute("_csrf");
+		
+	}
+	
+	@PostMapping("/login")
+	public String loginUser(@RequestBody SignUp user) {
+		System.out.println(user);
+		return "login done";
+	}
+	
+	
+	@GetMapping("/all-users")
+	public List<SignUp> getAllUserDetails(){
+		return userservice.getAllUserDetails();
+	}
+	
+	@PostMapping("/signup")
+	public SignUp addNewUser(@RequestBody SignUp adding) {
+		return userservice.addNewUser(adding);
+	}
+	
+	@PutMapping("/modify-user")
+	public SignUp modifyUserDetails(@RequestBody SignUp update) {
+		return userservice.modifyUserDetails(update);
+	}
+	
+
+}

@@ -4,11 +4,11 @@ package com.metromart.site.repo;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import com.metromart.site.entity.CreateAccount;
+import com.metromart.site.entity.SignUp;
 
 @Repository
-public interface AccountCreationRepo extends JpaRepository<CreateAccount,Integer> {
+public interface AccountCreationRepo extends JpaRepository<SignUp,Integer> {
 	
-	CreateAccount findByUsername(String username);
+	SignUp findByUsername(String username);
 
 }

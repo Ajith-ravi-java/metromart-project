@@ -1,0 +1,17 @@
+spring.application.name=simple-Ecommerce-site
+
+
+
+spring.datasource.url=jdbc:mysql://localhost:3306/EcommerceSite
+
+spring.datasource.username=root
+
+spring.datasource.password=2457
+
+spring.jpa.hibernate.ddl-auto=update
+
+spring.security.user.name=ajith
+spring.security.user.password=aji@22
+
+
+ 

@@ -1,0 +1,27 @@
+package com.Ecommerce.site.service;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.RequestBody;
+
+import com.Ecommerce.site.entity.userDetails;
+import com.Ecommerce.site.repo.userDetailsRepo;
+
+@Service
+public class userService {
+	
+	@Autowired
+	private userDetailsRepo userdetailrepo;
+
+	public List<userDetails> getAllUserDetails(){
+		return userdetailrepo.findAll();
+	}
+	
+	public userDetails addNewUser(@RequestBody userDetails adding) {
+		
+		return userdetailrepo.save(adding);
+	}
+	
+}

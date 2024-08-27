@@ -1,0 +1,20 @@
+package com.Ecommerce.site.service;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.Ecommerce.site.entity.userDetails;
+
+@Service
+public class userService {
+	
+	@Autowired
+	private userDetailsRepo userdetailrepo;
+
+	public List<userDetails> getAllUserDetails(){
+		
+	}
+	
+}

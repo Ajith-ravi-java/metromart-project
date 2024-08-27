@@ -5,13 +5,13 @@ import java.util.Collection;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
-import com.metromart.site.entity.CreateAccount;
+import com.metromart.site.entity.SignUp;
 
 
 public class myUserPrinciple implements UserDetails{
 
-	private CreateAccount user;
-	public myUserPrinciple(CreateAccount user) {
+	private SignUp user;
+	public myUserPrinciple(SignUp user) {
 		this.user=user;
 	}
 	
