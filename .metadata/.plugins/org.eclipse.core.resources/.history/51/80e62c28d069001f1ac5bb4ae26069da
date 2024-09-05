@@ -1,0 +1,5 @@
+package com.metromart.site.repo;
+
+public interface ProductRepo {
+
+}

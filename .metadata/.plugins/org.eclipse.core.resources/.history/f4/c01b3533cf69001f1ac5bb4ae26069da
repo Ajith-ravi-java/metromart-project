@@ -1,0 +1,5 @@
+package com.metromart.site.entity;
+
+public class product {
+
+}

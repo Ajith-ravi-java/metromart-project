@@ -1,8 +1,0 @@
-package com.Ecommerce.site.entity;
-
-public enum marritalStatus {
-
-	single,
-	married
-	
-}

@@ -10,7 +10,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name = "Account_creation")
+@Table(name = "Signup")
 public class SignUp {
 	
 	@Id
@@ -20,6 +20,8 @@ public class SignUp {
 	private String username;
 	
 	private String password;
+	
+	private String role;
 	
 	private String gmail;
 	
@@ -36,6 +38,14 @@ public class SignUp {
 	}
 	
 	
+	public String getRole() {
+		return role;
+	}
+
+	public void setRole(String role) {
+		this.role = role;
+	}
+
 	public String getGmail() {
 		return gmail;
 	}
@@ -76,7 +86,7 @@ public class SignUp {
 		this.status = status;
 	}
 
-	public SignUp(int user_id,String phonenumber,String gmail, String username, String password,userStatus status) {
+	public SignUp(int user_id,String phonenumber,String gmail, String username, String password,userStatus status,String role) {
 		super();
 		this.user_id = user_id;
 		this.username = username;
@@ -84,6 +94,7 @@ public class SignUp {
 		this.status = status;
 		this.phonenumber=phonenumber;
 		this.gmail=gmail;
+		this.role=role;
 	}
 
 	public SignUp() {
@@ -93,7 +104,7 @@ public class SignUp {
 	@Override
 	public String toString() {
 		return "CreateAccount [user_id=" + user_id + ", username=" + username + ", password=" + password + ", gmail="
-				+ gmail + ", phonenumber=" + phonenumber + ", status=" + status + "]";
+				+ gmail + ", phonenumber=" + phonenumber + ", status=" + status + ", Role=" + role + "]";
 	}
 
 	

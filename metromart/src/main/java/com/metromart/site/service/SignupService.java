@@ -20,6 +20,9 @@ public class SignupService {
 	private AccountCreationRepo userdetailrepo;
 	
 	@Autowired
+	private JWTService jwtservice;
+	
+	@Autowired
 	AuthenticationManager authmanager;
 
 	public List<SignUp> getAllUserDetails(){
@@ -39,6 +42,7 @@ public class SignupService {
 		user.setPhonenumber(update.getPhonenumber());
 		user.setPassword(update.getPassword());
 		user.setStatus(update.getStatus());
+		user.setRole(update.getRole());
 		user.setUsername(update.getUsername());
 	
 		return userdetailrepo.save(user);
@@ -48,8 +52,10 @@ public class SignupService {
 
 		Authentication manager=authmanager.authenticate(new UsernamePasswordAuthenticationToken(user.getUsername(),user.getPassword()));
 
-		if(manager.isAuthenticated())
-			return "successfully logged in";
+		if(manager.isAuthenticated()) {
+			System.out.println(user.getUser_id());
+			return jwtservice.getToken(user.getUsername());
+		}
 		else 
 		return "unAuthorized!! ";
 	}

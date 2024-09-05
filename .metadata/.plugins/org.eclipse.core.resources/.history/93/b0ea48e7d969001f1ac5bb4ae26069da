@@ -1,0 +1,26 @@
+package com.metromart.site.service;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.metromart.site.entity.product;
+import com.metromart.site.repo.ProductRepo;
+
+@Service
+public class ProductService {
+	
+	@Autowired
+	private ProductRepo productrepo;
+
+	public product addProduct(product add) {
+		return productrepo.save(add);
+	}
+
+	public List<product> listOfProduct() {
+		return productrepo.findAll();
+	}
+
+	
+}

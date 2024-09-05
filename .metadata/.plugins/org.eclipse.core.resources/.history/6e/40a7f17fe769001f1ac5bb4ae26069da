@@ -1,0 +1,65 @@
+package com.metromart.site.service;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.Authentication;
+import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.RequestBody;
+
+import com.metromart.site.Enum.userStatus;
+import com.metromart.site.entity.SignUp;
+import com.metromart.site.repo.AccountCreationRepo;
+
+@Service
+public class SignupService {
+	
+	@Autowired
+	private AccountCreationRepo userdetailrepo;
+	
+	@Autowired
+	private JWTService jwtservice;
+	
+	@Autowired
+	AuthenticationManager authmanager;
+
+	public List<SignUp> getAllUserDetails(){
+		return userdetailrepo.findAll();
+	}
+	
+	public SignUp addNewUser(SignUp adding) {
+		adding.setStatus(userStatus.active);
+		return userdetailrepo.save(adding);
+	}
+	
+	public SignUp modifyUserDetails(SignUp update) {
+	
+		SignUp user=userdetailrepo.findById(update.getUser_id()).orElse(null);
+		
+		user.setGmail(update.getGmail());
+		user.setPhonenumber(update.getPhonenumber());
+		user.setPassword(update.getPassword());
+		user.setStatus(update.getStatus());
+		user.setRole(update.getRole());
+		user.setUsername(update.getUsername());
+	
+		return userdetailrepo.save(user);
+	}
+
+	public String loginUser(SignUp user) {
+
+		Authentication manager=authmanager.authenticate(new UsernamePasswordAuthenticationToken(user.getUsername(),user.getPassword()));
+
+		if(manager.isAuthenticated()) {
+			System.out.println(user.getUser_id());
+			return jwtservice.getToken(user.getUser_id(),user.getUsername());
+		}
+		else 
+		return "unAuthorized!! ";
+	}
+	
+	
+	
+}

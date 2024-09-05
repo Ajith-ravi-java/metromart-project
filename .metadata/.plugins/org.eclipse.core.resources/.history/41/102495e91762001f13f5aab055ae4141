@@ -1,7 +1,0 @@
-package com.Ecommerce.site.Enum;
-
-public enum AddressStatus {
-
-	
-	
-}

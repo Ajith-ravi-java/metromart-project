@@ -1,0 +1,5 @@
+package com.metromart.site.Enum;
+
+public enum Role {
+
+}

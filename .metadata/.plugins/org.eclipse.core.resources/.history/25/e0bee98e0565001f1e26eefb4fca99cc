@@ -1,0 +1,30 @@
+package com.metromart.site.service;
+
+import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
+
+import org.springframework.stereotype.Service;
+
+import io.jsonwebtoken.Jwts;
+
+@Service
+public class JWTService {
+
+	public String getToken() {
+		
+		Map<String,Object> claim=new HashMap<>();
+		
+		return Jwts
+				.builder()
+				.claims()
+				.add(claim)
+				.subject()
+				
+				
+		
+	}
+	
+	
+
+}

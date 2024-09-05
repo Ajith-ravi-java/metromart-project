@@ -1,8 +1,0 @@
-package com.Ecommerce.site.Enum;
-
-public enum Type {
-
-	home,
-	work
-	
-}

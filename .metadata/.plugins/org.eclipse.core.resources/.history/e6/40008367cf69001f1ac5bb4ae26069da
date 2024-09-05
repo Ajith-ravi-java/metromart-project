@@ -1,0 +1,13 @@
+package com.metromart.site.entity;
+
+import jakarta.persistence.Entity;
+
+@Entity
+public class product {
+	
+	private int product_id;
+	private int user_id;
+	private int price;
+	private String brand;
+	private Products productType; 
+}
